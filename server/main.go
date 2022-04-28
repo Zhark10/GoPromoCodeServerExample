@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 	"net"
-)
 
-type productId = string
+	"server/handler"
+)
 
 const ListenPort = ":4546"
 
@@ -28,6 +28,6 @@ func startServer() {
 			newConnection.Close()
 			continue
 		}
-		go NewConnectionHandle(newConnection)
+		go handler.NewConnectionHandle(newConnection)
 	}
 }
